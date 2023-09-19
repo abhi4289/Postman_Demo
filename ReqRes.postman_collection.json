@@ -63,14 +63,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://reqres.in/api/users?page=1",
-					"protocol": "https",
+					"raw": "{{url}}/users?page=1",
 					"host": [
-						"reqres",
-						"in"
+						"{{url}}"
 					],
 					"path": [
-						"api",
 						"users"
 					],
 					"query": [
@@ -130,14 +127,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://reqres.in/api/users/2",
-					"protocol": "https",
+					"raw": "{{url}}/users/2",
 					"host": [
-						"reqres",
-						"in"
+						"{{url}}"
 					],
 					"path": [
-						"api",
 						"users",
 						"2"
 					]
