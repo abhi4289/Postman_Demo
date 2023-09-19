@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "d55ac1f5-3d6b-4363-bb0d-08f7812a9c1d",
+		"name": "ReqRes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29823492"
+	},
+	"item": [
+		{
+			"name": "Get Users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.response.to.have.status(200);\r",
+							"var jsonData = pm.response.json();\r",
+							"pm.expect(jsonData.data.length).to.equal(6)\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.expect(pm.response.code).to.equal(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Validate the 'page' field in the response\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData).to.have.property(\"page\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Validate the 'per_page' field in the response\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData).to.be.an('object');\r",
+							"    pm.expect(responseData.per_page).to.exist.and.to.be.a('number');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Validate the 'total' field in the response\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData).to.be.an('object');\r",
+							"    pm.expect(responseData.total).to.exist.and.to.be.a('number');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Validate the total_pages field in the response\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData).to.be.an('object');\r",
+							"    pm.expect(responseData.total_pages).to.exist.and.to.be.a('number');\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users?page=1",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.response.to.have.status(200);\r",
+							"var jsonData = pm.response.json();\r",
+							"pm.expect(jsonData.data.id).to.equal(2)\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Email is in a valid format\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData.data.email).to.match(/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/, \"Email is not in a valid format\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Verify that the support object is present in the response\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData.support).to.exist;\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Validate id is equal to 2\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData.data.id).to.equal(2);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users/2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
